@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/a_loading.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/bottom_line.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/circle_bg.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/edit_text_border.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_binoculars.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_electronics.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_female.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_jewelery.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/ic_male.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/loading_bg.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/rectangle_border.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/round_bg.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/tab_indicator_default.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/tab_indicator_selected.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/drawable/tab_selector.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_banner.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_brand.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_comment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_electronics_item.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_fashion_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_hot_sale.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_load_more.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_loading.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_post.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_recommended.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_single_pic.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_suggestion.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_top_post.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/activity_authentication.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/activity_giga_mall.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/banner_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/brands_part.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/by_category.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/category_part.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/comment_dialog.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/electronics_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/electronics_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/end_of_post_content.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/event_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/event_fragment_upper_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fashion_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/find_more_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/four_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fragment_first_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fragment_register.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/full_parent_loading.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/hot_sale_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/me_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/password_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/personal_data_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/post_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/price_filter_dialog.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/product_fragment.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/product_info_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/recommended_products.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/recommended_products_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/search_fragment.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/search_part.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/shopping_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/star_usage_fragment.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/three_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/two_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/verification_fragment.xml" value="0.2" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

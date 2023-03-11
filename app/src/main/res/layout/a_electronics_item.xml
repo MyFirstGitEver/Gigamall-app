@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_marginStart="10dp"
+    android:id="@+id/container"
+    android:padding="10dp"
+    android:background="@color/grey">
+
+    <ImageView
+        android:id="@+id/productImg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/priceTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15.03 $"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/productImg"
+        app:layout_constraintStart_toStartOf="@+id/productImg"
+        app:layout_constraintTop_toBottomOf="@+id/productImg" />
+
+    <TextView
+        android:id="@+id/desTxt"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:ellipsize="end"
+        android:text="TextViewdasdasdasdasd"
+        app:layout_constraintEnd_toEndOf="@+id/priceTxt"
+        app:layout_constraintStart_toStartOf="@+id/priceTxt"
+        app:layout_constraintTop_toBottomOf="@+id/priceTxt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

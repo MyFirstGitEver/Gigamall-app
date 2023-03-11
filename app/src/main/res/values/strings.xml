@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Gigamall-app</string>
+    <string name="authentication_title">Trải nghiệm mua sắm chưa từng có. Chỉ có tại Gigamall!</string>
+    <string name="other_login_methods">Chưa có tài khoản? Đăng ký bằng...</string>
+    <string name="verification_text">Đã gửi mã xác nhận. Vui lòng kiểm tra email để xác nhận</string>
+    <string name="verification_warning">Mã có hiệu lực trong </string>
+    <string name="server_client_id">442615979985-io5fuq50ohm9cpvempe4346if2kkeu6k.apps.googleusercontent.com</string>
+
+    <string name="facebook_app_id">1013776816276837</string>
+    <string name="fb_login_protocol_scheme">fb1013776816276837</string>
+    <string name="facebook_client_token">604c477b74f77816fc273ced7b541cdd</string>
+
+    <string name="star_title">Hướng dẫn sử dụng sao 🌟</string>
+    <string name="ins1">Sao là điểm bạn tích được sau mỗi lần thanh
+        toán hoặc tương tác với sự kiện Gigamall(chia sẻ lên tường Facebook hoặc like ảnh bài viết)</string>
+
+    <string name="hint"><font size="14">Thời trang, trang sức, đồ điện tử, ...</font></string>
+    <string name="hot_sale">Cháy hàng 🔥</string>
+    <string name="female">#Thời trang nữ 👗</string>
+    <string name="male">#Thời trang nam 👕</string>
+
+    <string name="see_more_text">Xêm thêm %1$d phản hồi</string>
+
+    <string name="tag"># %1$s</string>
+    <string name="range">%1$.2f - %2$.2f USD</string>
+    <string name="search_result">Kết quả tìm kiếm cho "%1$s"</string>
+
+    <string name="pref_name">com.example.gigamall_app</string>
+</resources>

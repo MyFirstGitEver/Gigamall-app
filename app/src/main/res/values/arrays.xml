@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_slider_values">
+        <item>1.0</item>
+        <item>5.0</item>
+    </array>
+
+    <string-array name="spinnerItems">
+        <item>Tất cả</item>
+        <item>Sản phẩm hot nhất</item>
+        <item>Sắp xếp theo giá tiền</item>
+    </string-array>
+</resources>
