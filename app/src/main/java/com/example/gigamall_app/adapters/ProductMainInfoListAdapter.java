@@ -109,6 +109,8 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     public void setComments(List<CommentBoxDTO> comments, int total){
+        this.comments = new ArrayList<>();
+
         this.comments.addAll(comments);
         this.comments.add(new LoadMoreDTO(product.getId(), 0, 1, total));
 
