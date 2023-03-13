@@ -1,5 +1,7 @@
 package com.example.gigamall_app.interfaces;
 
+import com.example.gigamall_app.entities.PostEntity;
+
 public interface OnCommentClickListener {
-    void onCommentClick(int postId);
+    void onCommentClick(PostEntity post);
 }

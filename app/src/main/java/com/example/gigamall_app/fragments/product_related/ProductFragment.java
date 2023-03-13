@@ -78,7 +78,7 @@ public class ProductFragment extends ProductRelatedFragment {
     };
 
     private final Runnable loadComments = () -> {
-        CommentService.service.getCommentsOfProductInPage(product.getId(), 0).enqueue(new Callback<List<CommentBoxDTO>>() {
+        CommentService.service.getComments(product.getId(), 0 , true).enqueue(new Callback<List<CommentBoxDTO>>() {
             @Override
             public void onResponse(Call<List<CommentBoxDTO>> call, Response<List<CommentBoxDTO>> response) {
                 viewModel.setComments(response.body());

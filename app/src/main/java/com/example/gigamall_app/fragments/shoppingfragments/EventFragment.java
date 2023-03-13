@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gigamall_app.R;
 import com.example.gigamall_app.adapters.eventadapters.EventListAdapter;
+import com.example.gigamall_app.dialogs.CommentDialog;
 import com.example.gigamall_app.entities.PostEntity;
 import com.example.gigamall_app.interfaces.OnCommentClickListener;
 import com.example.gigamall_app.interfaces.OnEndReachedListener;
@@ -35,8 +36,14 @@ public class EventFragment extends Fragment {
     private RecyclerView eventList;
 
     private EventFragmentViewModel viewModel;
-    private final OnCommentClickListener onCommentClickListener = postId -> {
+    private final OnCommentClickListener onCommentClickListener = post -> {
+        CommentDialog dialog = new CommentDialog();
 
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("post", post);
+
+        dialog.setArguments(bundle);
+        dialog.show(getParentFragmentManager(), "comment dialog");
     };
 
     private boolean isLastPage;

@@ -101,7 +101,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         Glide.with(context).load(post.getBrand().getLogoUrl()).into(userImg);
 
         commentBtn.setOnClickListener(v ->{
-            onCommentClickListener.onCommentClick(post.getId());
+            onCommentClickListener.onCommentClick(post);
         });
 
         if(imageViews.length == 1){

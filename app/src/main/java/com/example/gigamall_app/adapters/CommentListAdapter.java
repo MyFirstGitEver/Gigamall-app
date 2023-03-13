@@ -14,14 +14,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.gigamall_app.interfaces.ShowPreviewClickListener;
-import com.example.gigamall_app.tools.viewholders.NullViewHolder;
 import com.example.gigamall_app.R;
-import com.example.gigamall_app.tools.Tools;
 import com.example.gigamall_app.dtos.CommentBoxDTO;
 import com.example.gigamall_app.dtos.LoadMoreDTO;
-import com.example.gigamall_app.entities.ProductEntity;
+import com.example.gigamall_app.interfaces.ShowPreviewClickListener;
 import com.example.gigamall_app.services.CommentService;
+import com.example.gigamall_app.tools.Tools;
+import com.example.gigamall_app.tools.viewholders.NullViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,31 +29,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final ProductEntity product;
+public class CommentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Object> comments;
-
-    private static final int INFO = 0;
+    
     private static final int LOADING = 1;
     private static final int COMMENT = 2;
     private static final int LOAD_MORE = 3;
 
     private final ShowPreviewClickListener showPreviewClickListener;
+    private final int id;
 
-    public ProductMainInfoListAdapter(ProductEntity product, ShowPreviewClickListener showPreviewClickListener){
-        this.product = product;
+    public CommentListAdapter(ShowPreviewClickListener showPreviewClickListener, int id){
         this.showPreviewClickListener = showPreviewClickListener;
+        this.id = id;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
-        if(viewType == INFO){
-            return new ProductInfoViewHolder(inflater.inflate(R.layout.product_info_part, parent, false));
-        }
-        else if(viewType == LOADING){
+        
+        if(viewType == LOADING){
             return new NullViewHolder(inflater.inflate(R.layout.a_loading, parent, false));
         }
         else if(viewType == COMMENT){
@@ -67,14 +62,10 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
 
     @Override
     public int getItemViewType(int position) {
-        if(position == 0){
-            return INFO;
-        }
-
         if(comments == null){
             return LOADING;
         }
-        else if(comments.get(position - 1) instanceof CommentBoxDTO){
+        else if(comments.get(position) instanceof CommentBoxDTO){
             return COMMENT;
         }
         else{
@@ -87,25 +78,22 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
         if(holder instanceof NullViewHolder){
             return;
         }
-        else if(holder instanceof ProductInfoViewHolder){
-            ((ProductInfoViewHolder)holder).bind();
-        }
         else if(holder instanceof CommentViewHolder){
-            ((CommentViewHolder)holder).bind((CommentBoxDTO) comments.get(position - 1));
+            ((CommentViewHolder)holder).bind((CommentBoxDTO) comments.get(position));
         }
         else{
-            LoadMoreDTO dto = (LoadMoreDTO) comments.get(position - 1);
-            ((LoadMoreViewHolder)(holder)).bind(dto);
+            LoadMoreDTO dto = (LoadMoreDTO) comments.get(position);
+            ((LoadMoreViewHolder)holder).bind(dto);
         }
     }
 
     @Override
     public int getItemCount() {
         if(comments == null){
-            return 2;
+            return 1;
         }
         else{
-            return 1 + comments.size();
+            return comments.size();
         }
     }
 
@@ -113,14 +101,16 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
         this.comments = new ArrayList<>();
 
         this.comments.addAll(comments);
-        this.comments.add(new LoadMoreDTO(product.getId(), 0, 1, total));
+        this.comments.add(new LoadMoreDTO(id, 0, 1, total));
 
         notifyDataSetChanged();
     }
 
+    //TODO: MODIFY THIS!
     private void onSeeMoreClick(LoadMoreDTO dto, int position, boolean removeSeeMoreButton){
         if(dto.getLevel() == 0){
-            CommentService.service.getComments(dto.getId(), dto.getPage(), true).enqueue(new Callback<List<CommentBoxDTO>>() {
+            CommentService.service.getComments(dto.getId(), dto.getPage(), false)
+                    .enqueue(new Callback<List<CommentBoxDTO>>() {
                 @Override
                 public void onResponse(Call<List<CommentBoxDTO>> call, Response<List<CommentBoxDTO>> response) {
                     addLoadedComments(response, dto, position, removeSeeMoreButton);
@@ -135,7 +125,8 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             return;
         }
 
-        CommentService.service.getReplies(dto.getId(), dto.getPage(), true).enqueue(new Callback<List<CommentBoxDTO>>() {
+        CommentService.service.getReplies(dto.getId(), dto.getPage(), false)
+                .enqueue(new Callback<List<CommentBoxDTO>>() {
             @Override
             public void onResponse(Call<List<CommentBoxDTO>> call, Response<List<CommentBoxDTO>> response) {
                 addLoadedComments(response, dto, position, removeSeeMoreButton);
@@ -155,7 +146,7 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             boolean removeSeeMoreButton){
 
         if(removeSeeMoreButton){
-            comments.remove(position - 1);
+            comments.remove(position);
             notifyItemRemoved(position);
             position--;
         }
@@ -193,7 +184,7 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             container = itemView.findViewById(R.id.container);
             imgContainer = itemView.findViewById(R.id.imgContainer);
         }
-
+        
         public void bind(CommentBoxDTO dto){
             userNameTxt.setText(
                     dto.getUser().getUserDisplayName() + "(" + dto.getContentInStar() + " \uD83C\uDF1F)");
@@ -238,7 +229,7 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
                     seeMoreBtn.setVisibility(View.VISIBLE);
                 }
             }
-            else{
+            else{ 
                 seeMoreBtn.setVisibility(View.GONE);
             }
 
@@ -246,31 +237,9 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
                 Glide.with(context).load(dto.getAttatchedUrl()).into(attachedImg);
                 imgContainer.setVisibility(View.VISIBLE);
             }
-            else{
+            else{ 
                 imgContainer.setVisibility(View.GONE);
             }
-        }
-    }
-
-    public class ProductInfoViewHolder extends RecyclerView.ViewHolder {
-        TextView desTxt, priceTxt, starTxt;
-        ImageView productImg;
-
-        public ProductInfoViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            priceTxt = itemView.findViewById(R.id.priceTxt);
-            desTxt = itemView.findViewById(R.id.desTxt);
-            starTxt = itemView.findViewById(R.id.starCountTxt);
-            productImg = itemView.findViewById(R.id.productImg);
-        }
-
-        public void bind(){
-            desTxt.setText(product.getDescription());
-            priceTxt.setText(product.getPrice() + "$");
-            starTxt.setText("Đánh giá: " + product.getStar());
-
-            Glide.with(itemView.getContext()).load(product.getUrl()).into(productImg);
         }
     }
 
@@ -282,7 +251,7 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
 
             loadMoreBtn = itemView.findViewById(R.id.loadMoreBtn);
         }
-
+        
         public void bind(LoadMoreDTO dto){
             loadMoreBtn.setOnClickListener(v ->
                     onSeeMoreClick(dto, getBindingAdapterPosition(),

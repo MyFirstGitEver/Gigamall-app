@@ -32,12 +32,13 @@ public interface CommentService {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson)).build().create(CommentService.class);
 
-    @GET("api/comments/{productId}/{page}")
-    Call<List<CommentBoxDTO>> getCommentsOfProductInPage(
-            @Path("productId") int id, @Path("page") int page);
+    @GET("api/comments/{productId}/{page}/{ofProduct}")
+    Call<List<CommentBoxDTO>> getComments(
+            @Path("productId") int id, @Path("page") int page, @Path("ofProduct")boolean ofProduct);
 
-    @GET("api/comments/replies/{replyId}/{page}")
+    @GET("api/comments/replies/{replyId}/{page}/{ofProduct}")
     Call<List<CommentBoxDTO>> getReplies(
             @Path("replyId") int replyId,
-            @Path("page") int page);
+            @Path("page") int page,
+            @Path("ofProduct") boolean ofProduct);
 }
