@@ -18,14 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gigamall_app.R;
 import com.example.gigamall_app.adapters.eventadapters.EventListAdapter;
-import com.example.gigamall_app.dialogs.CommentDialog;
+import com.example.gigamall_app.fragments.post_related.CommentFragment;
 import com.example.gigamall_app.entities.PostEntity;
 import com.example.gigamall_app.interfaces.OnCommentClickListener;
 import com.example.gigamall_app.interfaces.OnEndReachedListener;
 import com.example.gigamall_app.services.PostService;
 import com.example.gigamall_app.viewmodels.EventFragmentViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,7 +36,7 @@ public class EventFragment extends Fragment {
 
     private EventFragmentViewModel viewModel;
     private final OnCommentClickListener onCommentClickListener = post -> {
-        CommentDialog dialog = new CommentDialog();
+        CommentFragment dialog = new CommentFragment();
 
         Bundle bundle = new Bundle();
         bundle.putParcelable("post", post);

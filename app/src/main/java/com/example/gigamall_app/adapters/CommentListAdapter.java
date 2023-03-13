@@ -155,9 +155,9 @@ public class CommentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             return;
         }
 
-        comments.add(position, new LoadMoreDTO(
+        comments.add(position + 1, new LoadMoreDTO(
                 dto.getId(), dto.getLevel(), dto.getPage() + 1, dto.getChildCount()));
-        comments.addAll(position, response.body());
+        comments.addAll(position + 1, response.body());
 
         notifyItemRangeInserted(position + 1, response.body().size() + 1);
     }

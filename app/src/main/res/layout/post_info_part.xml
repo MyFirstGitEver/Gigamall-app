@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
@@ -35,7 +36,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView5" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -44,13 +45,13 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView5" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/likeBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="@+id/textView30"
-        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        app:layout_constraintStart_toStartOf="@+id/titleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt"
         app:srcCompat="@drawable/ic_heart" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -61,8 +62,18 @@
         android:background="@android:color/transparent"
         android:text="Xem thêm 10 bình luận"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintTop_toTopOf="@+id/likeBtn" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
