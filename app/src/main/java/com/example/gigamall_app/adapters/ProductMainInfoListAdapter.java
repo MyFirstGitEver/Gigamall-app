@@ -84,64 +84,17 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Context context = holder.itemView.getContext();
-
         if(holder instanceof NullViewHolder){
             return;
         }
         else if(holder instanceof ProductInfoViewHolder){
-            ProductInfoViewHolder productInfoViewHolder = (ProductInfoViewHolder) holder;
-            productInfoViewHolder.desTxt.setText(product.getDescription());
-            productInfoViewHolder.priceTxt.setText(product.getPrice() + "$");
-            productInfoViewHolder.starTxt.setText("Đánh giá: " + product.getStar());
-
-            Glide.with(holder.itemView.getContext()).load(product.getUrl()).into(productInfoViewHolder.productImg);
+            ((ProductInfoViewHolder)holder).bind();
         }
         else if(holder instanceof CommentViewHolder){
-            CommentBoxDTO dto = (CommentBoxDTO) comments.get(position - 1);
-            CommentViewHolder commentHolder = (CommentViewHolder) holder;
-
-            commentHolder.userNameTxt.setText(
-                    dto.getUser().getUserDisplayName() + "(" + dto.getContentInStar() + " \uD83C\uDF1F)");
-            commentHolder.contentTxt.setText(dto.getContentInText());
-            commentHolder.timeTxt.setText(Tools.calculateTimeStamp(dto.getCommentDate()));
-            commentHolder.container.setPadding(dto.getLevel() * 60, 0, 0, 0);
-
-            Glide.with(commentHolder.itemView.getContext()).load(dto.getUser().getUrl()).into(commentHolder.userImg);
-            commentHolder.attachedImg.setOnClickListener(v ->{
-                String url = ((CommentBoxDTO)comments.get(holder.getBindingAdapterPosition() - 1)).getAttatchedUrl();
-                showPreviewClickListener.onShowPreview((ImageView) v, url);
-            });
-
-            reuseUpdate(dto, commentHolder, context);
-
-            // position is the position of recycler items
-            // using index of comments array
-
-            commentHolder.seeMoreBtn.setOnClickListener(v -> {
-                onSeeMoreClick(
-                        new LoadMoreDTO(dto.getId(), dto.getLevel() + 1, 0, dto.getChildCount()),
-                        holder.getBindingAdapterPosition(),
-                        false);
-
-                dto.setId(-1);
-
-                commentHolder.seeMoreBtn.setVisibility(View.GONE);
-            });
+            ((CommentViewHolder)holder).bind((CommentBoxDTO) comments.get(position - 1));
         }
         else{
-            // position is the position of recycler items
-            // using index of comments array
-
-            LoadMoreDTO dto = (LoadMoreDTO) comments.get(position - 1);
-            LoadMoreViewHolder loadMoreViewHolder = (LoadMoreViewHolder) holder;
-            loadMoreViewHolder.loadMoreBtn.setOnClickListener(v ->
-                    onSeeMoreClick(dto,
-                            holder.getBindingAdapterPosition(),
-                            true));
-            loadMoreViewHolder.loadMoreBtn.setPadding(dto.getLevel() * 60, 0, 0, 0);
-            loadMoreViewHolder.loadMoreBtn.setText(context.getResources().getString(
-                    R.string.see_more_text, dto.getChildCount()));
+            ((LoadMoreViewHolder)holder).bind((LoadMoreDTO) comments.get(position - 1));
         }
     }
 
@@ -156,8 +109,6 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     public void setComments(List<CommentBoxDTO> comments, int total){
-        this.comments = new ArrayList<>();
-
         this.comments.addAll(comments);
         this.comments.add(new LoadMoreDTO(product.getId(), 0, 1, total));
 
@@ -192,32 +143,6 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
 
             }
         });
-    }
-
-    private void reuseUpdate(CommentBoxDTO dto, CommentViewHolder commentHolder, Context context){
-        if(dto.getChildCount() != 0){ // having some replies?
-            commentHolder.seeMoreBtn.setVisibility(View.VISIBLE);
-            commentHolder.seeMoreBtn.setText(context.getResources().getString(
-                    R.string.see_more_text, dto.getChildCount()));
-
-            if(dto.getId() == -1){ // used?
-                commentHolder.seeMoreBtn.setVisibility(View.GONE);
-            }
-            else{
-                commentHolder.seeMoreBtn.setVisibility(View.VISIBLE);
-            }
-        }
-        else{
-            commentHolder.seeMoreBtn.setVisibility(View.GONE);
-        }
-
-        if(dto.getAttatchedUrl() != null && !dto.getAttatchedUrl().equals("")){
-            Glide.with(context).load(dto.getAttatchedUrl()).into(commentHolder.attachedImg);
-            commentHolder.imgContainer.setVisibility(View.VISIBLE);
-        }
-        else{
-            commentHolder.imgContainer.setVisibility(View.GONE);
-        }
     }
 
     private void addLoadedComments(
@@ -265,6 +190,63 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             container = itemView.findViewById(R.id.container);
             imgContainer = itemView.findViewById(R.id.imgContainer);
         }
+
+        public void bind(CommentBoxDTO dto){
+            userNameTxt.setText(
+                    dto.getUser().getUserDisplayName() + "(" + dto.getContentInStar() + " \uD83C\uDF1F)");
+            contentTxt.setText(dto.getContentInText());
+            timeTxt.setText(Tools.calculateTimeStamp(dto.getCommentDate()));
+            container.setPadding(dto.getLevel() * 60, 0, 0, 0);
+
+            Glide.with(itemView.getContext()).load(dto.getUser().getUrl()).into(userImg);
+            attachedImg.setOnClickListener(v ->{
+                String url = ((CommentBoxDTO)comments.get(getBindingAdapterPosition() - 1)).getAttatchedUrl();
+                showPreviewClickListener.onShowPreview((ImageView) v, url);
+            });
+
+            reuseUpdate(dto, itemView.getContext());
+
+            // position is the position of recycler items
+            // using index of comments array
+
+            seeMoreBtn.setOnClickListener(v -> {
+                onSeeMoreClick(
+                        new LoadMoreDTO(dto.getId(), dto.getLevel() + 1, 0, dto.getChildCount()),
+                        getBindingAdapterPosition(),
+                        false);
+
+                dto.setId(-1);
+
+                seeMoreBtn.setVisibility(View.GONE);
+            });
+
+        }
+
+        private void reuseUpdate(CommentBoxDTO dto, Context context){
+            if(dto.getChildCount() != 0){ // having some replies?
+                seeMoreBtn.setVisibility(View.VISIBLE);
+                seeMoreBtn.setText(context.getResources().getString(
+                        R.string.see_more_text, dto.getChildCount()));
+
+                if(dto.getId() == -1){ // used?
+                    seeMoreBtn.setVisibility(View.GONE);
+                }
+                else{
+                    seeMoreBtn.setVisibility(View.VISIBLE);
+                }
+            }
+            else{
+                seeMoreBtn.setVisibility(View.GONE);
+            }
+
+            if(dto.getAttatchedUrl() != null && !dto.getAttatchedUrl().equals("")){
+                Glide.with(context).load(dto.getAttatchedUrl()).into(attachedImg);
+                imgContainer.setVisibility(View.VISIBLE);
+            }
+            else{
+                imgContainer.setVisibility(View.GONE);
+            }
+        }
     }
 
     public class ProductInfoViewHolder extends RecyclerView.ViewHolder {
@@ -279,6 +261,14 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             starTxt = itemView.findViewById(R.id.starCountTxt);
             productImg = itemView.findViewById(R.id.productImg);
         }
+
+        public void bind(){
+            desTxt.setText(product.getDescription());
+            priceTxt.setText(product.getPrice() + "$");
+            starTxt.setText("Đánh giá: " + product.getStar());
+
+            Glide.with(itemView.getContext()).load(product.getUrl()).into(productImg);
+        }
     }
 
     public class LoadMoreViewHolder extends RecyclerView.ViewHolder {
@@ -288,6 +278,14 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
             super(itemView);
 
             loadMoreBtn = itemView.findViewById(R.id.loadMoreBtn);
+        }
+
+        public void bind(LoadMoreDTO dto){
+            loadMoreBtn.setOnClickListener(v ->
+                    onSeeMoreClick(dto, getBindingAdapterPosition(), true));
+            loadMoreBtn.setPadding(dto.getLevel() * 60, 0, 0, 0);
+            loadMoreBtn.setText(itemView.getContext().getResources().getString(
+                    R.string.see_more_text, dto.getChildCount()));
         }
     }
 }

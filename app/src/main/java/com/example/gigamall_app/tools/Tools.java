@@ -1,5 +1,7 @@
 package com.example.gigamall_app.tools;
 
+import android.util.Pair;
+
 import java.util.Arrays;
 import java.util.Date;
 

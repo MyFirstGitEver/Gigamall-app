@@ -46,25 +46,15 @@
         app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-    <FrameLayout
-        android:id="@+id/picContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postTitleTxt">
-
-    </FrameLayout>
-
     <ImageButton
         android:id="@+id/likeBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="@+id/postTitleTxt"
-        app:layout_constraintTop_toBottomOf="@+id/picContainer"
+        app:layout_constraintBottom_toBottomOf="@+id/commentsBtn"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="@+id/commentsBtn"
         app:srcCompat="@drawable/ic_heart" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -75,8 +65,60 @@
         android:text="10 phản hồi"
         android:textAllCaps="false"
         android:textColor="@color/blue"
-        app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
-        app:layout_constraintEnd_toEndOf="@+id/picContainer"
-        app:layout_constraintTop_toTopOf="@+id/likeBtn" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postTitleTxt">
+
+        <ImageView
+            android:id="@+id/firstImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/secondImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/thirdImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/fourthImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

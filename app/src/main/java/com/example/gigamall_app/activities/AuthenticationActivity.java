@@ -272,7 +272,7 @@ public class AuthenticationActivity extends AppCompatActivity
 
                 @Override
                 public void onFailure(Call<UserEntity> call, Throwable t) {
-
+                    Log.d("dasdas", "dasd");
                 }
             });
 

@@ -26,4 +26,6 @@
     <string name="search_result">Kết quả tìm kiếm cho "%1$s"</string>
 
     <string name="pref_name">com.example.gigamall_app</string>
+
+    <string name="comment_btn_text">Xem thêm %1$d</string>
 </resources>

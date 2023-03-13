@@ -29,9 +29,11 @@
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_hot_sale.xml" value="0.264" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_load_more.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_loading.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_media.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_post.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_recommended.xml" value="0.264" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_single_pic.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_single_pic_post.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_suggestion.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/a_top_post.xml" value="0.2" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/activity_authentication.xml" value="0.264" />
@@ -49,6 +51,7 @@
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fashion_part.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/find_more_fragment.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/four_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/four_pics_post.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fragment_first_login.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/fragment_register.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/full_parent_loading.xml" value="0.22826086956521738" />
@@ -57,6 +60,7 @@
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/password_fragment.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/personal_data_part.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/post_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/post_info_part.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/price_filter_dialog.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/product_fragment.xml" value="0.2" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/product_info_part.xml" value="0.22826086956521738" />
@@ -66,8 +70,11 @@
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/search_part.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/shopping_fragment.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/star_usage_fragment.xml" value="0.264" />
-        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/three_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/three_pics.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/three_pics_post.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/top_posts_part.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/two_pics.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/two_pics_post.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/layout/verification_fragment.xml" value="0.2" />
         <entry key="..\:/DoAnCaNhan/Gigamall-app/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
       </map>
