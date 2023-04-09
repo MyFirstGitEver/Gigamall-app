@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Tools {
-    public static String DOMAIN = "http://52.198.116.178:8080";
+    public static String DOMAIN = "http://:8080";
 
     private static final char[] SOURCE_CHARACTERS = {'À', 'Á', 'Â', 'Ã', 'È', 'É',
             'Ê', 'Ì', 'Í', 'Ò', 'Ó', 'Ô', 'Õ', 'Ù', 'Ú', 'Ý', 'à', 'á', 'â',
