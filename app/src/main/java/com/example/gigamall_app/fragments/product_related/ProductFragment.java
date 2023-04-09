@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.example.gigamall_app.R;
 import com.example.gigamall_app.adapters.ProductMainInfoListAdapter;
 import com.example.gigamall_app.dtos.CommentBoxDTO;
+import com.example.gigamall_app.dtos.LoadMoreDTO;
 import com.example.gigamall_app.entities.ProductEntity;
 import com.example.gigamall_app.interfaces.ProductPageScrollListener;
 import com.example.gigamall_app.interfaces.ShowPreviewClickListener;
@@ -33,6 +34,7 @@ import com.example.gigamall_app.tools.ShowPreviewFromThumb;
 import com.example.gigamall_app.viewmodels.ProductFragmentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -81,11 +83,12 @@ public class ProductFragment extends ProductRelatedFragment {
         CommentService.service.getComments(product.getId(), 0 , true).enqueue(new Callback<List<CommentBoxDTO>>() {
             @Override
             public void onResponse(Call<List<CommentBoxDTO>> call, Response<List<CommentBoxDTO>> response) {
-                viewModel.setComments(response.body());
+                int totalComments = Integer.parseInt(response.headers().get("total"));
 
-                totalComments = Integer.parseInt(response.headers().get("total"));
+                List<Object> comments = new ArrayList<>(response.body());
+                comments.add(new LoadMoreDTO(product.getId(), 0, 1, totalComments));
 
-                ((ProductMainInfoListAdapter)productMainInfoList.getAdapter()).setComments(response.body(), totalComments);
+                viewModel.setComments(comments);
             }
 
             @Override
@@ -99,8 +102,6 @@ public class ProductFragment extends ProductRelatedFragment {
         presenter.zoomIn(v);
         Glide.with(v.getContext()).load(url).into(v);
     };
-
-    private int totalComments;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
@@ -149,10 +150,6 @@ public class ProductFragment extends ProductRelatedFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(savedInstanceState != null){
-            totalComments = savedInstanceState.getInt("totalComments");
-        }
-
         product = getArguments().getParcelable("product");
 
         initViewData();
@@ -193,9 +190,9 @@ public class ProductFragment extends ProductRelatedFragment {
     private void setUpViewModel(){
         viewModel = new ViewModelProvider(this).get(ProductFragmentViewModel.class);
 
-        viewModel.observeProducts().observe(getViewLifecycleOwner(), new Observer<List<CommentBoxDTO>>() {
+        viewModel.observeProducts().observe(getViewLifecycleOwner(), new Observer<List<Object>>() {
             @Override
-            public void onChanged(List<CommentBoxDTO> comments) {
+            public void onChanged(List<Object> comments) {
                 if(comments == null){
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.postDelayed(loadComments, 400);
@@ -203,15 +200,8 @@ public class ProductFragment extends ProductRelatedFragment {
                     return;
                 }
 
-                ((ProductMainInfoListAdapter)productMainInfoList.getAdapter()).setComments(comments, totalComments);
+                ((ProductMainInfoListAdapter)productMainInfoList.getAdapter()).setComments(comments);
             }
         });
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putInt("totalComments", totalComments);
     }
 }

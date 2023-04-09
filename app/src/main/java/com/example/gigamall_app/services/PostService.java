@@ -1,6 +1,5 @@
 package com.example.gigamall_app.services;
 
-import com.example.gigamall_app.dtos.CommentBoxDTO;
 import com.example.gigamall_app.entities.PostEntity;
 import com.example.gigamall_app.tools.Tools;
 import com.google.gson.Gson;
@@ -13,10 +12,8 @@ import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.Path;
 
 public interface PostService {

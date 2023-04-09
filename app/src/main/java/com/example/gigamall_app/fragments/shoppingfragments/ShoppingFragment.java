@@ -102,8 +102,6 @@ public class ShoppingFragment extends Fragment {
         mainList.setLayoutManager(new LinearLayoutManager(getContext()));
 
         model = new ViewModelProvider(this).get(GigaMallActivityViewModel.class);
-
-        showFirstLoginDialog();
         observeViewModel();
 
         searchBtn.setOnClickListener(onSearchClickListener);
@@ -123,6 +121,7 @@ public class ShoppingFragment extends Fragment {
             public void onChanged(List<ProductEntity> products) {
                 if(products == null){
                     fetchProducts();
+                    showFirstLoginDialog();
                     return;
                 }
 

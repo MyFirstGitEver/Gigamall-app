@@ -8,13 +8,13 @@ import com.example.gigamall_app.dtos.CommentBoxDTO;
 import java.util.List;
 
 public class ProductFragmentViewModel extends ViewModel {
-    private MutableLiveData<List<CommentBoxDTO>> commentsHolder = new MutableLiveData<>(null);
+    private MutableLiveData<List<Object>> commentsHolder = new MutableLiveData<>(null);
 
-    public void setComments(List<CommentBoxDTO> comments){
+    public void setComments(List<Object> comments){
         commentsHolder.setValue(comments);
     }
 
-    public MutableLiveData<List<CommentBoxDTO>> observeProducts(){
+    public MutableLiveData<List<Object>> observeProducts(){
         return commentsHolder;
     }
 }

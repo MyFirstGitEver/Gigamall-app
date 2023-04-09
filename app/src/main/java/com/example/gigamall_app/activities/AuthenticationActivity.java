@@ -151,9 +151,7 @@ public class AuthenticationActivity extends AppCompatActivity
         });
 
         getSupportFragmentManager().setFragmentResultListener("last step", this, (key, result) ->{
-            String hashed = BCrypt.withDefaults().hashToString(12, result.getString("pass").toCharArray());
-
-            UserService.service.complete(hashed, registeredUserId).enqueue(new Callback<String>() {
+            UserService.service.complete(result.getString("pass"), registeredUserId).enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
                     userNameEditTxt.setText(response.body());

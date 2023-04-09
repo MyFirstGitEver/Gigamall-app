@@ -23,7 +23,6 @@ import com.example.gigamall_app.dtos.LoadMoreDTO;
 import com.example.gigamall_app.entities.ProductEntity;
 import com.example.gigamall_app.services.CommentService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,7 +31,7 @@ import retrofit2.Response;
 
 public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final ProductEntity product;
-    private List<Object> comments;
+    private List<java.lang.Object> comments;
 
     private static final int INFO = 0;
     private static final int LOADING = 1;
@@ -109,11 +108,8 @@ public class ProductMainInfoListAdapter extends RecyclerView.Adapter<RecyclerVie
         }
     }
 
-    public void setComments(List<CommentBoxDTO> comments, int total){
-        this.comments = new ArrayList<>();
-
-        this.comments.addAll(comments);
-        this.comments.add(new LoadMoreDTO(product.getId(), 0, 1, total));
+    public void setComments(List<Object> comments){
+        this.comments = comments;
 
         notifyDataSetChanged();
     }

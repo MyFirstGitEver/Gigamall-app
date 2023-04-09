@@ -24,6 +24,7 @@ public interface UserService {
             .build();
 
     Gson gson = new GsonBuilder()
+            .setLenient()
             .setPrettyPrinting()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
             .create();

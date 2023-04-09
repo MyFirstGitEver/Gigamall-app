@@ -4,7 +4,7 @@ import com.example.gigamall_app.entities.UserEntity;
 
 import java.util.Date;
 
-public class CommentBoxDTO  {
+public class CommentBoxDTO {
     private Integer id;
 
     private int productId, contentInStar, level, childCount;

@@ -30,7 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CommentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<Object> comments;
+    private List<java.lang.Object> comments;
     
     private static final int LOADING = 1;
     private static final int COMMENT = 2;
