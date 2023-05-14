@@ -119,7 +119,7 @@ public class EventListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public void removeFooter(){
         posts.remove(posts.size() - 1);
-        notifyItemRemoved(posts.size());
+        notifyItemRemoved(posts.size() + 1);
     }
 
     public void addPosts(List<PostEntity> posts){

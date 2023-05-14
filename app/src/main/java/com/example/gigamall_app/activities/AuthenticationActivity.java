@@ -41,7 +41,6 @@ import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -184,7 +183,7 @@ public class AuthenticationActivity extends AppCompatActivity
                         });
     }
 
-    private void setUpFacebookLoginCallback(){
+    private void setUpFacebookLoginCallback() {
         manager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(manager,
@@ -244,7 +243,7 @@ public class AuthenticationActivity extends AppCompatActivity
         }
     }
 
-    private void loginUsingSaved(){
+    private void loginUsingSaved() {
         try {
             File file = new File(getFilesDir(), "login");
 

@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventFragmentViewModel extends ViewModel {
-    private MutableLiveData<List<PostEntity>> postsHolder = new MutableLiveData<>(null);
-    private MutableLiveData<List<PostEntity>> top6PostsHolder = new MutableLiveData<>(null);
+    private List<PostEntity> posts = null;
+    private final MutableLiveData<List<PostEntity>> top6PostsHolder = new MutableLiveData<>(null);
 
-    public MutableLiveData<List<PostEntity>> getPostsHolder(){
-        return postsHolder;
+    public List<PostEntity> getPosts(){
+        return posts;
     }
     public void setPosts(List<PostEntity> posts){
-        postsHolder.setValue(posts);
+        this.posts = posts;
     }
 
     public MutableLiveData<List<PostEntity>> getTop6PostsHolder(){
@@ -28,13 +28,13 @@ public class EventFragmentViewModel extends ViewModel {
     }
 
     public String listIds(){
-        if(postsHolder.getValue() == null){
+        if(posts == null){
             return "[]";
         }
 
         List<Integer> ids = new ArrayList<>();
 
-        for(PostEntity post : postsHolder.getValue()){
+        for(PostEntity post : posts){
             if(post == null){
                 continue;
             }

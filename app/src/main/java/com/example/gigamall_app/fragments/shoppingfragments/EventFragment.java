@@ -75,6 +75,10 @@ public class EventFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(viewModel.getPosts() == null) {
+                            return; // not initialised yet!
+                        }
+
                         PostService.service.fetchRandomPosts(viewModel.listIds()).enqueue(new Callback<List<PostEntity>>() {
                             @Override
                             public void onResponse(Call<List<PostEntity>> call, Response<List<PostEntity>> response) {
@@ -113,31 +117,29 @@ public class EventFragment extends Fragment {
         });
 
         viewModel = new ViewModelProvider(this).get(EventFragmentViewModel.class);
-        viewModel.getPostsHolder().observe(getViewLifecycleOwner(), new Observer<List<PostEntity>>() {
-            @Override
-            public void onChanged(List<PostEntity> posts) {
-                if(posts == null){
-                    PostService.service.fetchRandomPosts(viewModel.listIds()).enqueue(new Callback<List<PostEntity>>() {
-                        @Override
-                        public void onResponse(Call<List<PostEntity>> call, Response<List<PostEntity>> response) {
-                            viewModel.setPosts(response.body());
-                        }
 
-                        @Override
-                        public void onFailure(Call<List<PostEntity>> call, Throwable t) {
-
-                        }
-                    });
+        if(viewModel.getPosts() == null) {
+            PostService.service.fetchRandomPosts(viewModel.listIds()).enqueue(new Callback<List<PostEntity>>() {
+                @Override
+                public void onResponse(Call<List<PostEntity>> call, Response<List<PostEntity>> response) {
+                    viewModel.setPosts(response.body());
+                    ((EventListAdapter)eventList.getAdapter()).addPosts(response.body());
+                    ((EventListAdapter)eventList.getAdapter()).addFooter();
                 }
-                else{
-                    ((EventListAdapter)eventList.getAdapter()).addPosts(posts);
 
-                    if(posts.size() == 5){
-                        ((EventListAdapter)eventList.getAdapter()).addFooter();
-                    }
+                @Override
+                public void onFailure(Call<List<PostEntity>> call, Throwable t) {
+
                 }
+            });
+        }
+        else {
+            ((EventListAdapter)eventList.getAdapter()).addPosts(viewModel.getPosts());
+
+            if(!isLastPage) {
+                ((EventListAdapter)eventList.getAdapter()).addFooter();
             }
-        });
+        }
 
         viewModel.getTop6PostsHolder().observe(getViewLifecycleOwner(), new Observer<List<PostEntity>>() {
             @Override
