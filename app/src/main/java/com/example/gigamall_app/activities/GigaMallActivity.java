@@ -34,15 +34,14 @@ public class GigaMallActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.shopping:
-                        mainPager.setCurrentItem(0);
-                        break;
-                    case R.id.event:
-                        mainPager.setCurrentItem(1);
-                        break;
-                    default:
-                        mainPager.setCurrentItem(2);
+                if(item.getItemId() == R.id.shopping) {
+                    mainPager.setCurrentItem(0);
+                }
+                else if(item.getItemId() == R.id.event) {
+                    mainPager.setCurrentItem(1);
+                }
+                else {
+                    mainPager.setCurrentItem(2);
                 }
 
                 return true;
@@ -50,5 +49,22 @@ public class GigaMallActivity extends AppCompatActivity {
         });
 
         mainPager.setAdapter(new MainFragmentsAdapter(this));
+        mainPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
+                switch (position) {
+                    case 0:
+                        bottomNav.setSelectedItemId(R.id.shopping);
+                        break;
+                    case 1:
+                        bottomNav.setSelectedItemId(R.id.event);
+                        break;
+                    default:
+                        bottomNav.setSelectedItemId(R.id.me);
+                }
+            }
+        });
     }
 }
