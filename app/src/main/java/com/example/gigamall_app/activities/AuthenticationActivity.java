@@ -170,7 +170,6 @@ public class AuthenticationActivity extends AppCompatActivity
                         .setServerClientId(getString(R.string.server_client_id))
                         .build();
 
-
         Identity.getSignInClient(this)
                 .getSignInIntent(request)
                 .addOnSuccessListener(
